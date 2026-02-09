@@ -121,7 +121,45 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Deep Herbal Variant Custom Styles */
+@theme inline {
+  --color-primary: #2E7D32;
+  --color-primary-hover: #256628;
+  --color-background-light: #f6f8f6;
+  --color-background-dark: #0F1C18;
+  --color-surface-dark: #162520;
+  --color-copper-accent: #B87333;
+
+  --image-mesh-copper: radial-gradient(at 10% 10%, rgb(30, 60, 40) 0, transparent 40%), radial-gradient(at 90% 10%, rgb(184, 115, 51) 0, transparent 50%), radial-gradient(at 90% 90%, rgb(15, 28, 24) 0, transparent 40%), radial-gradient(at 10% 90%, rgb(46, 125, 50) 0, transparent 50%);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  50% {
+    transform: translate(-10px, 15px);
+  }
+
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
