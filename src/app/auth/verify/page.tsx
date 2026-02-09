@@ -112,10 +112,7 @@ function VerifyForm() {
             <div className="hidden lg:flex lg:w-[40%] flex-col relative bg-[#141e15] overflow-hidden">
                 {/* Mesh Gradient Background */}
                 <div
-                    className="absolute inset-0 w-full h-full opacity-60"
-                    style={{
-                        background: 'radial-gradient(circle at 10% 20%, #1a4d1d 0%, transparent 40%), radial-gradient(circle at 90% 80%, #2f7f34 0%, transparent 40%), radial-gradient(circle at 50% 50%, #0d120d 0%, transparent 60%)'
-                    }}
+                    className="absolute inset-0 w-full h-full opacity-60 bg-mesh-verify"
                 ></div>
 
                 {/* Content Overlay */}

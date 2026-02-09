@@ -137,6 +137,7 @@
   --color-copper-accent: #B87333;
 
   --image-mesh-copper: radial-gradient(at 10% 10%, rgb(30, 60, 40) 0, transparent 40%), radial-gradient(at 90% 10%, rgb(184, 115, 51) 0, transparent 50%), radial-gradient(at 90% 90%, rgb(15, 28, 24) 0, transparent 40%), radial-gradient(at 10% 90%, rgb(46, 125, 50) 0, transparent 50%);
+  --image-mesh-verify: radial-gradient(circle at 10% 20%, #1a4d1d 0%, transparent 40%), radial-gradient(circle at 90% 80%, #2f7f34 0%, transparent 40%), radial-gradient(circle at 50% 50%, #0d120d 0%, transparent 60%);
 }
 
 .glass-panel {
