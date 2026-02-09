@@ -4,7 +4,6 @@ import { useActionState, useEffect, useState } from 'react'
 import { sendRecoveryCode, resetPassword, RecoveryState } from './actions'
 import Link from 'next/link'
 import { ArrowRight, ArrowLeft, ShieldCheck, Lock, LockKeyhole, Eye, EyeOff, CheckCircle } from 'lucide-react'
-import { cn } from '@/utils/cn'
 
 const initialState: RecoveryState = {}
 
@@ -22,7 +21,8 @@ export default function RecoveryPage() {
 
     useEffect(() => {
         if (sendState.step === 'code_sent') {
-            setStep(2)
+            // Use setTimeout to avoid synchronous state update warning
+            setTimeout(() => setStep(2), 0)
         }
     }, [sendState.step])
 
@@ -66,11 +66,11 @@ export default function RecoveryPage() {
                     </div>
                     {/* Quote */}
                     <div className="flex flex-col gap-6 max-w-lg">
-                        <span className="text-6xl opacity-50 font-serif">“</span>
+                        <span className="text-6xl opacity-50 font-serif">&ldquo;</span>
                         <blockquote className="text-3xl font-medium leading-tight italic font-heading">
-                            "The physician who fails to enter the body of the patient with the lamp of knowledge and understanding can never treat diseases."
+                            &ldquo;The physician who fails to enter the body of the patient with the lamp of knowledge and understanding can never treat diseases.&rdquo;
                         </blockquote>
-                        <cite className="text-lg opacity-80 not-italic font-sans tracking-wide">— Charaka Samhita</cite>
+                        <cite className="text-lg opacity-80 not-italic font-sans tracking-wide">&mdash; Charaka Samhita</cite>
                     </div>
                     {/* Compliance Badges */}
                     <div className="flex flex-wrap gap-6 items-center opacity-70">
@@ -168,7 +168,7 @@ export default function RecoveryPage() {
                                         Back to options
                                     </button>
                                     <h1 className="text-4xl md:text-5xl font-bold tracking-tight font-heading text-foreground">Secure Reset</h1>
-                                    <p className="text-[#5e8761] text-lg leading-relaxed">We've sent a 6-digit code to <strong>{email}</strong>. Please enter it below to reset your password.</p>
+                                    <p className="text-[#5e8761] text-lg leading-relaxed">We&apos;ve sent a 6-digit code to <strong>{email}</strong>. Please enter it below to reset your password.</p>
                                 </div>
 
                                 <form action={resetAction} className="flex flex-col gap-6 mt-2">
@@ -182,6 +182,7 @@ export default function RecoveryPage() {
                                                 <input
                                                     key={idx}
                                                     id={`code-${idx}`}
+                                                    aria-label={`Digit ${idx + 1}`}
                                                     type="text"
                                                     maxLength={1}
                                                     value={digit}
