@@ -3,10 +3,11 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { supabase } from "@/utils/supabase/client";
+import { login } from "./actions";
 import { Leaf, Quote, Mail, Eye, EyeOff, MessageSquare, Lock, ShieldCheck, Loader2 } from "lucide-react";
 
 // Form Schema
@@ -36,19 +37,17 @@ export default function LoginPage() {
         setError(null);
 
         try {
-            const { error } = await supabase.auth.signInWithPassword({
-                email: data.email,
-                password: data.password,
-            });
+            const result = await login(data);
 
-            if (error) {
-                setError(error.message);
+            if (result.error) {
+                setError(result.error);
                 return;
             }
 
             router.push("/dashboard");
             router.refresh();
         } catch (err) {
+            console.error(err);
             setError("An unexpected error occurred.");
         } finally {
             setIsLoading(false);
@@ -77,13 +76,14 @@ export default function LoginPage() {
                         <Quote className="h-8 w-8 fill-current" />
                     </div>
                     <blockquote className="mb-6 text-xl font-medium leading-relaxed text-white/90">
-                        "Ayurveda is the science of life, and Ayurgrid brings that science into the modern digital era with precision and respect for tradition."
+                        &quot;Ayurveda is the science of life, and Ayurgrid brings that science into the modern digital era with precision and respect for tradition.&quot;
                     </blockquote>
                     <div className="flex items-center gap-4">
-                        <div className="h-12 w-12 overflow-hidden rounded-full border-2 border-primary/30">
-                            <img
+                        <div className="h-12 w-12 overflow-hidden rounded-full border-2 border-primary/30 relative">
+                            <Image
                                 alt="Portrait of Dr. Vasant Lad"
-                                className="h-full w-full object-cover"
+                                fill
+                                className="object-cover"
                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBcnpS2vh8NldcMb39F_i5T8WvcPmVqQdT35WR9_xWzWJu0SzjAbPuTUJHh6RBmWyb5gSzwioxJBMDDqIQjOAGiV2w9Iy7BeR-ttax3b69KWDdrx7vlkGJAjPO0sJSRHoJGrXmCCaEMeuSvijDe4x77uHeUbZfpRoekYEKGVbRj9WdHdB2wLCZM_aGkXMoONxOaASJ5KirSRA03Pg3D3CE9Ea-40eiL6X6JXSGKP_o4lIocX3WmZ4Xeu5Oh-qB46GOp6giF4YxrTY"
                             />
                         </div>
