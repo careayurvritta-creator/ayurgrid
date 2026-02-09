@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ayurgrid - Onboarding Step 2</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2f7f34",
+                        "primary-dark": "#1e5e22",
+                        "primary-light": "#e8f5e9",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#141e15",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Stepper & Toggle Styles */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #2f7f34;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #2f7f34;
+        }
+        
+        /* Smooth height transition for collapsible sections */
+        .collapsible-content {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .collapsible-content.active {
+            max-height: 500px; /* Arbitrary large height */
+            opacity: 1;
+        }
+
+        /* Hide scrollbar for clean look */
+        body {
+            scrollbar-width: thin;
+            scrollbar-color: #d1d5db #f3f4f6;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center">
+<!-- Top Navigation / Progress Header -->
+<div class="w-full max-w-[960px] px-6 py-8">
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-2">
+<div class="h-8 w-8 rounded bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">local_hospital</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">Ayurgrid</span>
+</div>
+<div class="text-sm font-medium text-gray-500">Step 2 of 4</div>
+</div>
+<!-- Progress Steps -->
+<div class="flex items-center w-full mb-8 relative">
+<div class="absolute top-1/2 left-0 w-full h-0.5 bg-gray-200 -z-10 rounded"></div>
+<!-- Step 1: Completed -->
+<div class="flex flex-col items-center gap-2 bg-background-light dark:bg-background-dark pr-4 z-10">
+<div class="flex items-center gap-2 text-primary">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white shadow-sm ring-4 ring-background-light dark:ring-background-dark">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<span class="text-sm font-semibold hidden sm:block">Organization</span>
+</div>
+</div>
+<div class="flex-1 h-0.5 bg-primary"></div>
+<!-- Step 2: Active -->
+<div class="flex flex-col items-center gap-2 bg-background-light dark:bg-background-dark px-4 z-10">
+<div class="flex items-center gap-2 text-primary">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white shadow-md ring-4 ring-primary/20">
+<span class="text-sm font-bold">2</span>
+</div>
+<span class="text-sm font-bold text-gray-900 dark:text-white hidden sm:block">Infrastructure</span>
+</div>
+</div>
+<div class="flex-1 h-0.5 bg-gray-200"></div>
+<!-- Step 3: Pending -->
+<div class="flex flex-col items-center gap-2 bg-background-light dark:bg-background-dark px-4 z-10">
+<div class="w-8 h-8 rounded-full bg-gray-100 border-2 border-gray-300 flex items-center justify-center text-gray-400 ring-4 ring-background-light dark:ring-background-dark">
+<span class="text-sm font-medium">3</span>
+</div>
+</div>
+<div class="flex-1 h-0.5 bg-gray-200"></div>
+<!-- Step 4: Pending -->
+<div class="flex flex-col items-center gap-2 bg-background-light dark:bg-background-dark pl-4 z-10">
+<div class="w-8 h-8 rounded-full bg-gray-100 border-2 border-gray-300 flex items-center justify-center text-gray-400 ring-4 ring-background-light dark:ring-background-dark">
+<span class="text-sm font-medium">4</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content Card -->
+<div class="w-full max-w-[960px] px-6 pb-12">
+<div class="bg-white dark:bg-[#1a261c] rounded-xl shadow-lg border border-gray-100 dark:border-gray-800 p-8 md:p-12 relative overflow-hidden">
+<!-- Decorator -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
+<div class="mb-10">
+<h1 class="text-3xl font-bold text-gray-900 dark:text-white tracking-tight mb-2">Location &amp; Infrastructure</h1>
+<p class="text-gray-500 dark:text-gray-400">Establish your hospital's physical presence and capacity limits.</p>
+</div>
+<div class="space-y-12">
+<!-- Section A: Location Details -->
+<section>
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-full bg-primary-light dark:bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<h2 class="text-xl font-semibold text-gray-900 dark:text-white">Location Details</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Address -->
+<div class="md:col-span-2">
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Registered Address <span class="text-red-500">*</span></label>
+<textarea class="w-full rounded-xl border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow text-gray-900 dark:text-white placeholder-gray-400 px-4 py-3 resize-none" placeholder="Enter complete street address" rows="3"></textarea>
+</div>
+<!-- City -->
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">City <span class="text-red-500">*</span></label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 material-symbols-outlined text-[20px]">apartment</span>
+<input class="w-full rounded-full border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 focus:ring-2 focus:ring-primary focus:border-transparent pl-11 pr-4 py-3 text-gray-900 dark:text-white placeholder-gray-400" placeholder="e.g. Kerala" type="text"/>
+</div>
+</div>
+<!-- State -->
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">State <span class="text-red-500">*</span></label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 material-symbols-outlined text-[20px]">map</span>
+<input class="w-full rounded-full border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 focus:ring-2 focus:ring-primary focus:border-transparent pl-11 pr-4 py-3 text-gray-900 dark:text-white placeholder-gray-400" placeholder="e.g. Cochin" type="text"/>
+</div>
+</div>
+<!-- PIN Code -->
+<div class="md:col-span-1">
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">PIN Code <span class="text-red-500">*</span></label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 material-symbols-outlined text-[20px]">pin_drop</span>
+<input class="w-full rounded-full border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 focus:ring-2 focus:ring-primary focus:border-transparent pl-11 pr-4 py-3 text-gray-900 dark:text-white placeholder-gray-400" pattern="[0-9]*" placeholder="000 000" type="text"/>
+</div>
+</div>
+</div>
+</section>
+<hr class="border-gray-100 dark:border-gray-800"/>
+<!-- Section B: Branch Configuration -->
+<section>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-light dark:bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">domain</span>
+</div>
+<div>
+<h2 class="text-lg font-semibold text-gray-900 dark:text-white">Multi-Branch Support</h2>
+<p class="text-sm text-gray-500 dark:text-gray-400">Enable if this entity manages multiple locations</p>
+</div>
+</div>
+<!-- Toggle Switch -->
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-gray-200 appearance-none cursor-pointer transition-all duration-300 ease-in-out shadow-sm left-0 top-0 checked:left-6 checked:border-primary peer outline-none focus:ring-0" id="toggle-branch" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-200 cursor-pointer peer-checked:bg-primary transition-colors duration-300" for="toggle-branch"></label>
+</div>
+</div>
+<!-- Collapsible Branch Details -->
+<div class="collapsible-content peer-checked:active grid grid-cols-1 md:grid-cols-2 gap-6 pl-0 md:pl-14" id="branch-details">
+<div class="pt-4">
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Primary Branch Name</label>
+<input class="w-full rounded-full border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 focus:ring-2 focus:ring-primary focus:border-transparent px-5 py-3 text-gray-900 dark:text-white placeholder-gray-400" placeholder="Main Hospital Block" type="text"/>
+</div>
+<div class="pt-4">
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Branch Code</label>
+<input class="w-full rounded-full border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 focus:ring-2 focus:ring-primary focus:border-transparent px-5 py-3 text-gray-900 dark:text-white placeholder-gray-400" placeholder="BLK-01" type="text"/>
+</div>
+</div>
+</section>
+<hr class="border-gray-100 dark:border-gray-800"/>
+<!-- Section C: Infrastructure & Capacity -->
+<section>
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-full bg-primary-light dark:bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">meeting_room</span>
+</div>
+<h2 class="text-xl font-semibold text-gray-900 dark:text-white">Capacity Setup</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+<!-- Consultation Rooms Stepper -->
+<div class="bg-gray-50 dark:bg-gray-800/30 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 flex flex-col justify-between">
+<div class="mb-4">
+<label class="text-base font-semibold text-gray-900 dark:text-white block">Consultation Rooms</label>
+<span class="text-sm text-gray-500 dark:text-gray-400">Total active doctor cabins</span>
+</div>
+<div class="flex items-center gap-4 bg-white dark:bg-gray-900 rounded-full p-1.5 border border-gray-200 dark:border-gray-700 w-fit">
+<button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 transition-colors">
+<span class="material-symbols-outlined text-lg">remove</span>
+</button>
+<span class="font-bold text-lg w-6 text-center text-gray-900 dark:text-white">2</span>
+<button class="w-8 h-8 rounded-full bg-primary text-white hover:bg-primary-dark flex items-center justify-center shadow-md transition-colors">
+<span class="material-symbols-outlined text-lg">add</span>
+</button>
+</div>
+</div>
+<!-- Panchkarma Rooms Stepper -->
+<div class="bg-gray-50 dark:bg-gray-800/30 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 flex flex-col justify-between">
+<div class="mb-4">
+<label class="text-base font-semibold text-gray-900 dark:text-white block">Therapy Rooms</label>
+<span class="text-sm text-gray-500 dark:text-gray-400">Panchkarma / Treatment areas</span>
+</div>
+<div class="flex items-center gap-4 bg-white dark:bg-gray-900 rounded-full p-1.5 border border-gray-200 dark:border-gray-700 w-fit">
+<button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 transition-colors">
+<span class="material-symbols-outlined text-lg">remove</span>
+</button>
+<span class="font-bold text-lg w-6 text-center text-gray-900 dark:text-white">4</span>
+<button class="w-8 h-8 rounded-full bg-primary text-white hover:bg-primary-dark flex items-center justify-center shadow-md transition-colors">
+<span class="material-symbols-outlined text-lg">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- IPD Toggle Section -->
+<div class="bg-primary/5 dark:bg-primary/10 rounded-2xl p-6 border border-primary/10 dark:border-primary/20">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-white dark:bg-background-dark text-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined">bed</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">In-Patient Department (IPD)</h3>
+<p class="text-sm text-gray-600 dark:text-gray-300">Enable Hospital Admission Facility</p>
+</div>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-gray-200 appearance-none cursor-pointer transition-all duration-300 ease-in-out shadow-sm left-0 top-0 checked:left-6 checked:border-primary peer outline-none focus:ring-0" id="toggle-ipd" name="toggle-ipd" onclick="document.getElementById('ipd-content').classList.toggle('active')" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-200 cursor-pointer peer-checked:bg-primary transition-colors duration-300" for="toggle-ipd"></label>
+</div>
+</div>
+<!-- Collapsible IPD Details -->
+<div class="collapsible-content" id="ipd-content">
+<div class="pt-6 border-t border-primary/10 dark:border-primary/20 mt-4 space-y-6">
+<!-- Bed Count -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<label class="text-base font-medium text-gray-900 dark:text-white">Total IPD Beds Capacity</label>
+<div class="flex items-center gap-4 bg-white dark:bg-gray-900 rounded-full p-1.5 border border-gray-200 dark:border-gray-700 w-fit shadow-sm">
+<button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 transition-colors">
+<span class="material-symbols-outlined text-lg">remove</span>
+</button>
+<span class="font-bold text-lg w-8 text-center text-gray-900 dark:text-white">10</span>
+<button class="w-8 h-8 rounded-full bg-primary text-white hover:bg-primary-dark flex items-center justify-center shadow-md transition-colors">
+<span class="material-symbols-outlined text-lg">add</span>
+</button>
+</div>
+</div>
+<!-- Bed Categories -->
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Bed Categories Available</label>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+<label class="flex items-center gap-2 p-3 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 cursor-pointer hover:border-primary/50 transition-colors">
+<input checked="" class="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-medium text-gray-700 dark:text-gray-200">General</span>
+</label>
+<label class="flex items-center gap-2 p-3 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 cursor-pointer hover:border-primary/50 transition-colors">
+<input class="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-medium text-gray-700 dark:text-gray-200">Semi-Private</span>
+</label>
+<label class="flex items-center gap-2 p-3 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 cursor-pointer hover:border-primary/50 transition-colors">
+<input class="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-medium text-gray-700 dark:text-gray-200">Private</span>
+</label>
+<label class="flex items-center gap-2 p-3 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 cursor-pointer hover:border-primary/50 transition-colors">
+<input class="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-medium text-gray-700 dark:text-gray-200">Deluxe</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Actions Footer -->
+<div class="flex items-center justify-between pt-6 mt-6">
+<button class="flex items-center gap-2 text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white transition-colors px-2 py-2 font-medium">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+                        Back to Step 1
+                    </button>
+<button class="flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-semibold py-4 px-8 rounded-full shadow-lg hover:shadow-xl hover:shadow-primary/20 transition-all transform hover:-translate-y-0.5">
+                        Save &amp; Continue
+                        <span class="material-symbols-outlined text-xl">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bottom Disclaimer -->
+<p class="text-center text-xs text-gray-400 mt-6 pb-6">
+            © 2024 Ayurgrid Solutions. Secure &amp; Encrypted Connection.
+        </p>
+</div>
+<script>
+        // Simple JS to handle the branch toggle expanding logic for demonstration
+        const branchToggle = document.getElementById('toggle-branch');
+        const branchDetails = document.getElementById('branch-details');
+
+        branchToggle.addEventListener('change', function() {
+            if(this.checked) {
+                branchDetails.classList.add('active');
+            } else {
+                branchDetails.classList.remove('active');
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ayurgrid - Clinic Identity Onboarding</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2f7f34",
+                        "primary-dark": "#1b5e20",
+                        "primary-light": "#e8f5e9",
+                        "background-light": "#ffffff",
+                        "background-card": "#fafbfc",
+                        "background-dark": "#141e15",
+                        "text-main": "#111811",
+                        "text-secondary": "#5e8761",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem", 
+                        "lg": "2rem", 
+                        "xl": "3rem", 
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>/* Custom Select Arrow */
+select {
+    appearance: none;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBJfqFG2oG9oOZIgd8-fRIzVCC2sprJIotZWFp58YK4RdCW7_qUJjY6ZBC67HfR-G3Is9wpoGqKK_o4sxqauHqwmAA7FxTOm1i4ONiCh1R9jlE7BmtBgwllFVAFyzsRSrHZVHTPxLGh-sjT6V9XhSqQ95k5oi3uaXWp-XDZpIZIHlS5i5v_5ja_1cZyq1KXNcEjsTtUgyqVW0K9zf08EBMqzajXw92Q-lb6eNu23vYKbvv_NpzsiXgJewWecAza4uptqE6Me-NLsHI);
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em
+    }</style>
+</head>
+<body class="bg-background-light text-text-main font-display antialiased min-h-screen flex flex-col">
+<!-- Navbar -->
+<header class="w-full border-b border-gray-100 bg-white sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="bg-primary/10 p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined text-2xl">spa</span>
+</div>
+<span class="font-serif text-xl font-bold text-gray-900 tracking-tight">Ayurgrid</span>
+</div>
+<div class="text-sm text-gray-500 hidden sm:block">
+                Operational Onboarding
+            </div>
+</div>
+</header>
+<main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+<!-- Progress Stepper -->
+<div class="mb-12 max-w-5xl mx-auto">
+<div class="relative">
+<div class="absolute top-1/2 left-0 w-full h-1 bg-gray-100 -translate-y-1/2 rounded-full -z-10"></div>
+<div class="absolute top-1/2 left-0 w-[12%] h-1 bg-primary -translate-y-1/2 rounded-full -z-10 transition-all duration-500"></div>
+<div class="flex justify-between w-full">
+<!-- Step 1 (Active) -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-lg shadow-primary/30 ring-4 ring-white transition-all">
+<span class="material-symbols-outlined text-xl">medical_services</span>
+</div>
+<span class="text-xs font-semibold text-primary mt-1 hidden sm:block">Clinic Identity</span>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center gap-2 group cursor-default">
+<div class="w-10 h-10 rounded-full bg-white border-2 border-gray-200 text-gray-400 flex items-center justify-center ring-4 ring-white">
+<span class="material-symbols-outlined text-xl">location_on</span>
+</div>
+<span class="text-xs font-medium text-gray-400 mt-1 hidden sm:block">Location</span>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center gap-2 group cursor-default">
+<div class="w-10 h-10 rounded-full bg-white border-2 border-gray-200 text-gray-400 flex items-center justify-center ring-4 ring-white">
+<span class="material-symbols-outlined text-xl">inventory_2</span>
+</div>
+<span class="text-xs font-medium text-gray-400 mt-1 hidden sm:block">Operations</span>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col items-center gap-2 group cursor-default">
+<div class="w-10 h-10 rounded-full bg-white border-2 border-gray-200 text-gray-400 flex items-center justify-center ring-4 ring-white">
+<span class="material-symbols-outlined text-xl">verified_user</span>
+</div>
+<span class="text-xs font-medium text-gray-400 mt-1 hidden sm:block">Verification</span>
+</div>
+</div>
+</div>
+<!-- Mobile Step Indicator text only visible on very small screens -->
+<div class="sm:hidden text-center mt-6">
+<p class="text-primary font-semibold text-sm">Step 1 of 4: Clinic Identity</p>
+</div>
+</div>
+<!-- Main Card -->
+<div class="max-w-4xl mx-auto bg-background-card rounded-[2rem] shadow-soft border border-gray-100 overflow-hidden">
+<!-- Card Header -->
+<div class="px-8 pt-10 pb-6 border-b border-gray-100 bg-white">
+<h1 class="font-serif text-3xl md:text-4xl font-semibold text-gray-900 mb-2">Clinic Identity &amp; Legal Ownership</h1>
+<p class="text-gray-500 text-base">Please provide the official registration details of your establishment. This data is critical for medico-legal compliance.</p>
+</div>
+<!-- Form Body -->
+<div class="p-8 md:p-10 space-y-10">
+<!-- Section A: Establishment Identity -->
+<section class="space-y-6">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-sm font-bold">domain</span>
+</div>
+<h2 class="text-lg font-semibold text-gray-900">Establishment Identity</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Name Input -->
+<div class="col-span-1 md:col-span-2 space-y-2">
+<label class="block text-sm font-medium text-gray-700" for="clinic_name">Registered Name of Clinic/Hospital/Center <span class="text-red-500">*</span></label>
+<input class="w-full h-12 px-4 rounded-xl border border-gray-300 bg-white text-gray-900 focus:border-primary focus:ring-primary placeholder:text-gray-400 transition-colors" id="clinic_name" placeholder="e.g. AyurLife Wellness Center" type="text"/>
+</div>
+<!-- Type Select -->
+<div class="col-span-1 space-y-2">
+<label class="block text-sm font-medium text-gray-700" for="clinic_type">Type of Establishment <span class="text-red-500">*</span></label>
+<select class="w-full h-12 px-4 rounded-xl border border-gray-300 bg-white text-gray-900 focus:border-primary focus:ring-primary transition-colors" id="clinic_type">
+<option disabled="" selected="" value="">Select type</option>
+<option value="opd">OPD Clinic</option>
+<option value="panchkarma">Panchkarma Center</option>
+<option value="hospital">Ayurvedic Hospital</option>
+<option value="wellness">Wellness Resort</option>
+</select>
+</div>
+<!-- Reg Number Input -->
+<div class="col-span-1 space-y-2">
+<label class="block text-sm font-medium text-gray-700" for="reg_number">
+                                Registration Number <span class="text-gray-400 font-normal ml-1">(Optional)</span>
+</label>
+<input class="w-full h-12 px-4 rounded-xl border border-gray-300 bg-white text-gray-900 focus:border-primary focus:ring-primary placeholder:text-gray-400 transition-colors" id="reg_number" placeholder="e.g. REG-2024-XXXX" type="text"/>
+</div>
+</div>
+</section>
+<hr class="border-gray-200 border-dashed"/>
+<!-- Section B: Primary Responsible Doctor -->
+<section class="space-y-6">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-sm font-bold">stethoscope</span>
+</div>
+<h2 class="text-lg font-semibold text-gray-900">Primary Responsible Doctor</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Doctor Name -->
+<div class="col-span-1 md:col-span-2 space-y-2">
+<label class="block text-sm font-medium text-gray-700" for="doctor_name">Primary Doctor / Medical Director Full Name <span class="text-red-500">*</span></label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">Dr.</span>
+<input class="w-full h-12 pl-12 pr-4 rounded-xl border border-gray-300 bg-white text-gray-900 focus:border-primary focus:ring-primary placeholder:text-gray-400 transition-colors" id="doctor_name" placeholder="Full Name" type="text"/>
+</div>
+</div>
+<!-- Doctor Reg Number with Verify Button -->
+<div class="col-span-1 md:col-span-2 space-y-2">
+<label class="block text-sm font-medium text-gray-700" for="doc_reg_number">Medical Registration Number <span class="text-red-500">*</span></label>
+<div class="flex flex-col sm:flex-row gap-3">
+<input class="flex-1 h-12 px-4 rounded-xl border border-gray-300 bg-white text-gray-900 focus:border-primary focus:ring-primary placeholder:text-gray-400 transition-colors" id="doc_reg_number" placeholder="e.g. MCI/12345/2020" type="text"/>
+<button class="h-12 px-6 rounded-xl border-2 border-primary/20 text-primary font-medium hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center gap-2 whitespace-nowrap group" type="button">
+<span class="material-symbols-outlined text-lg group-hover:animate-pulse">verified</span>
+                                    Verify Registration
+                                </button>
+</div>
+<p class="text-xs text-text-secondary flex items-start gap-1.5 mt-2">
+<span class="material-symbols-outlined text-sm relative top-[1px]">info</span>
+                                Accurate registration details are required for medico-legal validity of prescriptions generated on Ayurgrid.
+                            </p>
+</div>
+</div>
+</section>
+<hr class="border-gray-200 border-dashed"/>
+<!-- Section C: Admin Contact -->
+<section class="space-y-6">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-sm font-bold">contact_mail</span>
+</div>
+<h2 class="text-lg font-semibold text-gray-900">Admin Contact</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Mobile Number -->
+<div class="col-span-1 space-y-2">
+<label class="block text-sm font-medium text-gray-700" for="mobile">Official Mobile Number <span class="text-red-500">*</span></label>
+<div class="flex">
+<div class="h-12 px-3 bg-gray-50 border border-r-0 border-gray-300 rounded-l-xl flex items-center text-gray-500 font-medium">
+                                    +91
+                                </div>
+<input class="flex-1 h-12 px-4 rounded-r-xl border border-gray-300 bg-white text-gray-900 focus:border-primary focus:ring-primary placeholder:text-gray-400 transition-colors" id="mobile" placeholder="98765 43210" type="tel"/>
+</div>
+</div>
+<!-- Email ID -->
+<div class="col-span-1 space-y-2">
+<label class="block text-sm font-medium text-gray-700" for="email">Official Email ID <span class="text-red-500">*</span></label>
+<input class="w-full h-12 px-4 rounded-xl border border-gray-300 bg-white text-gray-900 focus:border-primary focus:ring-primary placeholder:text-gray-400 transition-colors" id="email" placeholder="admin@clinic.com" type="email"/>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer / Actions -->
+<div class="bg-gray-50 px-8 py-6 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-6">
+<!-- Legal Checkbox -->
+<div class="flex items-start gap-3 w-full md:w-auto md:max-w-md">
+<div class="flex h-6 items-center">
+<input class="h-5 w-5 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer" id="legal-confirm" type="checkbox"/>
+</div>
+<label class="text-sm text-gray-600 leading-snug cursor-pointer select-none" for="legal-confirm">
+                        I certify that I am the legal owner or authorized administrator for this establishment and the information provided is accurate.
+                    </label>
+</div>
+<!-- Buttons -->
+<div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
+<a class="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors" href="#">Back to Login</a>
+<button class="h-12 px-8 rounded-full bg-primary text-white font-medium shadow-lg shadow-primary/20 hover:bg-primary-dark hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2">
+                        Save &amp; Continue
+                        <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-8 text-center text-xs text-gray-400">
+            © 2024 Ayurgrid Solutions. All rights reserved. <a class="underline hover:text-gray-600" href="#">Privacy Policy</a>
+</div>
+</main>
+</body></html>

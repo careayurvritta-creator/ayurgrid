@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Account Recovery - Ayurgrid</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Noto+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2f7f34",
+                        "primary-dark": "#1b4d1e",
+                        "primary-light": "#d5e2d6",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#141e15",
+                        "text-main": "#111811",
+                        "text-sub": "#5e8761",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"],
+                        "sans": ["Noto Sans", "sans-serif"],
+                        "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main font-display antialiased min-h-screen flex flex-col overflow-hidden">
+<div class="flex h-screen w-full flex-row">
+<!-- Left Panel: Brand & Quote (40%) -->
+<div class="hidden lg:flex w-[40%] flex-col relative bg-primary overflow-hidden">
+<!-- Background Image/Gradient Overlay -->
+<div class="absolute inset-0 z-0 opacity-20 bg-cover bg-center" data-alt="Abstract herbal leaves pattern texture" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuATnALzu2_2GNxODMYC24OTslKpOmRZH6GH-wwXY2N95UWd0nr1grNxo3Yji6NLJ5CAqATk929kE-VXzmtYLosHkMIrPk38-c9wdcForFH-hgme5X3Cq9hQ-QD-AtJFqzFmZcTEP3X9d7_XN9Xv1DlIscoLjekaKhDPK4ipvw6ZLkyWKiPlYdjXMQ3Ycp49P_5Ir3hVvNkPnGRV8xAwSvmCvAM-HcIRKpnxS8w-R-doh5P55Q6ualszI1QUm8MYHTfq-bQNCirxrlo');">
+</div>
+<div class="absolute inset-0 z-10 bg-gradient-to-br from-primary via-[#246328] to-[#143d17] opacity-90"></div>
+<div class="relative z-20 flex flex-col h-full justify-between p-12 text-white">
+<!-- Logo Area -->
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-4xl">local_florist</span>
+<span class="text-2xl font-bold tracking-wide">Ayurgrid</span>
+</div>
+<!-- Quote -->
+<div class="flex flex-col gap-6 max-w-lg">
+<span class="material-symbols-outlined text-6xl opacity-50">format_quote</span>
+<blockquote class="text-3xl font-medium leading-tight italic">
+                        "The physician who fails to enter the body of the patient with the lamp of knowledge and understanding can never treat diseases."
+                    </blockquote>
+<cite class="text-lg opacity-80 not-italic font-sans tracking-wide">— Charaka Samhita</cite>
+</div>
+<!-- Compliance Badges -->
+<div class="flex flex-wrap gap-6 items-center opacity-70">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xl">verified_user</span>
+<span class="text-sm font-sans font-medium">HIPAA Compliant</span>
+</div>
+<div class="h-4 w-px bg-white/40"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xl">security</span>
+<span class="text-sm font-sans font-medium">ISO 27001</span>
+</div>
+<div class="h-4 w-px bg-white/40"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xl">lock</span>
+<span class="text-sm font-sans font-medium">256-bit SSL</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Panel: Functional Form (60%) -->
+<div class="flex-1 w-full lg:w-[60%] bg-white dark:bg-background-dark flex flex-col overflow-y-auto">
+<!-- Top Navigation / Help -->
+<div class="w-full p-6 flex justify-end">
+<a class="text-text-sub hover:text-primary flex items-center gap-2 text-sm font-medium transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">help</span>
+                    Need Help?
+                </a>
+</div>
+<!-- Content Container -->
+<div class="flex-1 flex flex-col justify-center items-center px-4 sm:px-12 md:px-24 xl:px-32 py-8">
+<div class="w-full max-w-[560px] flex flex-col gap-8 transition-all duration-500 ease-in-out">
+<!-- State 1: Request Access -->
+<div class="flex flex-col gap-6" id="state-1">
+<div class="flex flex-col gap-2">
+<h1 class="text-4xl md:text-5xl font-bold text-text-main tracking-tight">Restore Access</h1>
+<p class="text-text-sub text-lg leading-relaxed">Enter your registered credentials to receive a secure recovery code via SMS or Email.</p>
+</div>
+<form class="flex flex-col gap-6 mt-4" onsubmit="event.preventDefault(); document.getElementById('state-1').classList.add('hidden'); document.getElementById('state-2').classList.remove('hidden');">
+<div class="flex flex-col gap-2">
+<label class="text-text-main font-semibold text-lg" for="identity">Registered Email / Mobile Number</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-text-sub group-focus-within:text-primary transition-colors">person</span>
+</div>
+<input class="w-full h-14 pl-12 pr-4 rounded-xl border border-primary-light bg-background-light text-text-main placeholder:text-text-sub/50 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all text-lg font-sans" id="identity" placeholder="dr.sharma@ayurgrid.com" required="" type="text"/>
+</div>
+</div>
+<button class="h-14 w-full bg-primary hover:bg-primary-dark text-white rounded-full font-bold text-lg tracking-wide shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 group" type="submit">
+                                Send Verification Code
+                                <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</form>
+<div class="flex justify-center mt-2">
+<a class="text-text-sub hover:text-primary underline underline-offset-4 text-base font-medium transition-colors" href="#">
+                                Return to Login
+                            </a>
+</div>
+</div>
+<!-- State 2: Verify & Reset (Hidden initially) -->
+<div class="hidden flex flex-col gap-6 animate-fade-in" id="state-2">
+<div class="flex flex-col gap-2">
+<button class="self-start text-text-sub hover:text-primary flex items-center gap-1 text-sm font-medium mb-2 transition-colors" onclick="document.getElementById('state-2').classList.add('hidden'); document.getElementById('state-1').classList.remove('hidden');">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+                                Back to options
+                            </button>
+<h1 class="text-4xl md:text-5xl font-bold text-text-main tracking-tight">Secure Reset</h1>
+<p class="text-text-sub text-lg leading-relaxed">We've sent a 6-digit code to your registered device. Please enter it below to reset your password.</p>
+</div>
+<form class="flex flex-col gap-6 mt-2" onsubmit="event.preventDefault();">
+<!-- OTP Input -->
+<div class="flex flex-col gap-3">
+<label class="text-text-main font-semibold text-lg">Verification Code</label>
+<div class="flex gap-2 sm:gap-4 justify-between">
+<input class="w-12 h-14 sm:w-16 sm:h-16 text-center text-2xl font-mono border border-primary-light rounded-lg bg-background-light focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all" maxlength="1" placeholder="0" type="text"/>
+<input class="w-12 h-14 sm:w-16 sm:h-16 text-center text-2xl font-mono border border-primary-light rounded-lg bg-background-light focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all" maxlength="1" placeholder="0" type="text"/>
+<input class="w-12 h-14 sm:w-16 sm:h-16 text-center text-2xl font-mono border border-primary-light rounded-lg bg-background-light focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all" maxlength="1" placeholder="0" type="text"/>
+<input class="w-12 h-14 sm:w-16 sm:h-16 text-center text-2xl font-mono border border-primary-light rounded-lg bg-background-light focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all" maxlength="1" placeholder="0" type="text"/>
+<input class="w-12 h-14 sm:w-16 sm:h-16 text-center text-2xl font-mono border border-primary-light rounded-lg bg-background-light focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all" maxlength="1" placeholder="0" type="text"/>
+<input class="w-12 h-14 sm:w-16 sm:h-16 text-center text-2xl font-mono border border-primary-light rounded-lg bg-background-light focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all" maxlength="1" placeholder="0" type="text"/>
+</div>
+<div class="flex justify-between items-center text-sm mt-1">
+<span class="text-text-sub">Code expires in <span class="text-primary font-bold font-mono">00:30</span></span>
+<button class="text-primary font-bold hover:underline" type="button">Resend Code</button>
+</div>
+</div>
+<hr class="border-primary-light/50 my-2"/>
+<!-- Password Fields -->
+<div class="grid gap-5">
+<div class="flex flex-col gap-2">
+<label class="text-text-main font-semibold text-lg" for="new-password">New Password</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-text-sub group-focus-within:text-primary transition-colors">lock</span>
+</div>
+<input class="w-full h-14 pl-12 pr-12 rounded-xl border border-primary-light bg-background-light text-text-main placeholder:text-text-sub/50 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all text-lg font-sans" id="new-password" placeholder="••••••••••••" required="" type="password"/>
+<button class="absolute inset-y-0 right-0 pr-4 flex items-center text-text-sub hover:text-primary focus:outline-none" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+<!-- Password strength indicator (Visual only) -->
+<div class="flex gap-1 h-1 mt-1">
+<div class="flex-1 bg-primary rounded-full"></div>
+<div class="flex-1 bg-primary rounded-full"></div>
+<div class="flex-1 bg-primary-light rounded-full"></div>
+<div class="flex-1 bg-primary-light rounded-full"></div>
+</div>
+<p class="text-xs text-text-sub font-sans">Must be at least 8 characters with numbers &amp; symbols.</p>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-text-main font-semibold text-lg" for="confirm-password">Confirm New Password</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-text-sub group-focus-within:text-primary transition-colors">lock_reset</span>
+</div>
+<input class="w-full h-14 pl-12 pr-12 rounded-xl border border-primary-light bg-background-light text-text-main placeholder:text-text-sub/50 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all text-lg font-sans" id="confirm-password" placeholder="••••••••••••" required="" type="password"/>
+<button class="absolute inset-y-0 right-0 pr-4 flex items-center text-text-sub hover:text-primary focus:outline-none" type="button">
+<span class="material-symbols-outlined">visibility_off</span>
+</button>
+</div>
+</div>
+</div>
+<button class="h-14 w-full bg-primary hover:bg-primary-dark text-white rounded-full font-bold text-lg tracking-wide shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 mt-4" type="submit">
+                                Update Password
+                                <span class="material-symbols-outlined">check_circle</span>
+</button>
+</form>
+</div>
+</div>
+</div>
+<!-- Footer area for form -->
+<div class="p-6 text-center">
+<p class="text-xs text-text-sub font-sans">© 2024 Ayurgrid Hospital Systems. All rights reserved.</p>
+</div>
+</div>
+</div>
+<style>
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</body></html>

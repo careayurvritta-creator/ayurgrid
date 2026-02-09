@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ayurgrid - Chief Hospital Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Merriweather:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2f7f33",
+                        "primary-dark": "#1b4d1d",
+                        "sidebar-bg": "#0F1C18",
+                        "background-light": "#F5F7FA",
+                        "background-dark": "#141e15",
+                        "card-white": "#FFFFFF",
+                        "accent-orange": "#e77c08",
+                        "accent-red": "#e72608",
+                        "text-main": "#111811",
+                        "text-secondary": "#5e8760",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "serif": ["Merriweather", "serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light font-display text-text-main h-screen flex overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 bg-sidebar-bg text-white flex-shrink-0 flex flex-col h-full transition-all duration-300 hidden md:flex border-r border-gray-800">
+<!-- Logo -->
+<div class="h-16 flex items-center px-6 border-b border-gray-800 gap-3">
+<div class="bg-primary/20 p-1.5 rounded-lg">
+<span class="material-symbols-outlined text-primary text-2xl">spa</span>
+</div>
+<div>
+<h1 class="text-white text-lg font-bold tracking-wide font-serif">Ayurgrid</h1>
+<p class="text-gray-400 text-xs">Admin Console</p>
+</div>
+</div>
+<!-- Navigation -->
+<nav class="flex-1 overflow-y-auto py-6 px-3 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/20 text-white group" href="#">
+<span class="material-symbols-outlined text-primary group-hover:text-white transition-colors">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:bg-gray-800 hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">stethoscope</span>
+<span class="text-sm font-medium">OPD</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:bg-gray-800 hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">bed</span>
+<span class="text-sm font-medium">IPD</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:bg-gray-800 hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">self_improvement</span>
+<span class="text-sm font-medium">Panchakarma</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:bg-gray-800 hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">inventory_2</span>
+<span class="text-sm font-medium">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:bg-gray-800 hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">groups</span>
+<span class="text-sm font-medium">Staff</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:bg-gray-800 hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">bar_chart</span>
+<span class="text-sm font-medium">Reports</span>
+</a>
+</nav>
+<!-- User Profile (Bottom Sidebar) -->
+<div class="p-4 border-t border-gray-800">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-xs font-bold bg-center bg-cover" data-alt="Portrait of a doctor in a white coat" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBZ1Vsxw-wHIsHqJFM6gxzCKxkhV-ds-WAJA3bktjwOPq7FeaH3ugHVeIObqfhDAULTOeFQelkeT6BgtdNzDMoWjPJtiPVsurVJcaeIzfQsLFrZ7JSb2sneItxqiI54euBr_dD_4rLJMTtofBmDFGRlv8Z-16KrbnVVPAwTUufBzC8ileHYkglvVozb5w3_kQvn8UWCswZEVmH7-5Pai1J8PyxoBhECupS5p0bXN-OK0OEvO0D1eFPc5hBafOzvudPZ4ot47QcykG8')"></div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-white">Dr. A. Sharma</span>
+<span class="text-xs text-gray-400">Chief Admin</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-full overflow-hidden relative">
+<!-- Top Bar -->
+<header class="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 flex-shrink-0 z-10">
+<div class="flex items-center gap-6">
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-gray-500 hover:text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<!-- Branch Selector -->
+<div class="flex items-center gap-2">
+<div class="bg-primary/10 p-1.5 rounded-md text-primary">
+<span class="material-symbols-outlined text-xl">domain</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-gray-500 uppercase font-bold tracking-wider">Branch</span>
+<select class="bg-transparent border-none p-0 text-sm font-bold text-gray-800 focus:ring-0 cursor-pointer pr-6">
+<option>Main Center (Mumbai)</option>
+<option>Pune Branch</option>
+<option>Nashik Branch</option>
+</select>
+</div>
+</div>
+<!-- Search Bar -->
+<div class="hidden lg:flex items-center w-80 bg-gray-100 rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-primary/20 transition-all">
+<span class="material-symbols-outlined text-gray-400 text-xl">search</span>
+<input class="bg-transparent border-none outline-none text-sm w-full ml-2 text-gray-700 placeholder-gray-400 focus:ring-0" placeholder="Search Patient Name / UHID..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<!-- Date Picker Placeholder -->
+<div class="hidden sm:flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3 py-1.5 shadow-sm text-sm text-gray-600 hover:border-primary/50 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-gray-400 text-lg">calendar_today</span>
+<span>Oct 24, 2023</span>
+</div>
+<div class="h-6 w-px bg-gray-200 hidden sm:block"></div>
+<button class="relative p-2 text-gray-500 hover:bg-gray-100 rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border border-white"></span>
+</button>
+<button class="p-2 text-gray-500 hover:bg-gray-100 rounded-full transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-6 space-y-6">
+<!-- Row 1: KPIs -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- KPI 1 -->
+<div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-2">
+<div class="p-2 bg-green-50 rounded-lg">
+<span class="material-symbols-outlined text-primary text-xl">payments</span>
+</div>
+<span class="flex items-center text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px] mr-1">trending_up</span>
+                            +12%
+                        </span>
+</div>
+<p class="text-gray-500 text-sm font-medium">Today's Collections</p>
+<h3 class="text-2xl font-bold text-gray-900 mt-1">₹1,25,000</h3>
+<p class="text-xs text-gray-400 mt-1">vs yesterday ₹1,11,500</p>
+</div>
+<!-- KPI 2 -->
+<div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-2">
+<div class="p-2 bg-blue-50 rounded-lg">
+<span class="material-symbols-outlined text-blue-600 text-xl">group</span>
+</div>
+</div>
+<p class="text-gray-500 text-sm font-medium">Patient Footfall</p>
+<h3 class="text-2xl font-bold text-gray-900 mt-1">45</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-xs px-1.5 py-0.5 bg-blue-100 text-blue-700 rounded font-medium">15 New</span>
+<span class="text-xs px-1.5 py-0.5 bg-gray-100 text-gray-600 rounded font-medium">30 Follow-up</span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-2">
+<div class="p-2 bg-orange-50 rounded-lg">
+<span class="material-symbols-outlined text-orange-600 text-xl">hotel_class</span>
+</div>
+<span class="text-xs text-orange-600 bg-orange-50 px-2 py-1 rounded-full font-medium">High</span>
+</div>
+<p class="text-gray-500 text-sm font-medium">Capacity Utilization</p>
+<h3 class="text-2xl font-bold text-gray-900 mt-1">85%</h3>
+<p class="text-xs text-gray-400 mt-1">Rooms &amp; Beds Occupancy</p>
+</div>
+<!-- KPI 4 -->
+<div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-2">
+<div class="p-2 bg-purple-50 rounded-lg">
+<span class="material-symbols-outlined text-purple-600 text-xl">medical_services</span>
+</div>
+<span class="text-xs text-red-600 bg-red-50 px-2 py-1 rounded-full font-medium">3 Absent</span>
+</div>
+<p class="text-gray-500 text-sm font-medium">Staff Availability</p>
+<h3 class="text-2xl font-bold text-gray-900 mt-1">12<span class="text-lg text-gray-400 font-normal">/15</span></h3>
+<p class="text-xs text-gray-400 mt-1">Doctors Present</p>
+</div>
+</section>
+<!-- Row 2: Live Operations -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Widget A: OPD Queue Status -->
+<div class="lg:col-span-2 bg-white rounded-xl shadow-sm border border-gray-100 flex flex-col h-full">
+<div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+<div>
+<h2 class="text-lg font-serif font-bold text-gray-800">Live Operations: OPD Queue</h2>
+<p class="text-xs text-gray-500 mt-0.5">Real-time patient tracking</p>
+</div>
+<button class="text-sm text-primary font-medium hover:underline">View All</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm">
+<thead class="bg-gray-50 text-gray-500 uppercase tracking-wider text-xs font-semibold">
+<tr>
+<th class="px-6 py-3">Patient Name</th>
+<th class="px-6 py-3">Token</th>
+<th class="px-6 py-3">Doctor</th>
+<th class="px-6 py-3">Status</th>
+<th class="px-6 py-3 text-right">Wait Time</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-100">
+<tr class="hover:bg-gray-50 transition-colors group">
+<td class="px-6 py-3 font-medium text-gray-800">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold">RK</div>
+<div>
+<div class="font-medium">Rajesh Kumar</div>
+<div class="text-[10px] text-gray-400">UHID: 24501</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-3 text-gray-500 font-mono text-xs">A-101</td>
+<td class="px-6 py-3 text-gray-600">Dr. Varma</td>
+<td class="px-6 py-3">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 border border-yellow-200">
+                                            Waiting
+                                        </span>
+</td>
+<td class="px-6 py-3 text-right text-gray-500 font-mono">15m</td>
+</tr>
+<tr class="hover:bg-gray-50 transition-colors group">
+<td class="px-6 py-3 font-medium text-gray-800">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-xs font-bold">SD</div>
+<div>
+<div class="font-medium">Sita Devi</div>
+<div class="text-[10px] text-gray-400">UHID: 24502</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-3 text-gray-500 font-mono text-xs">A-102</td>
+<td class="px-6 py-3 text-gray-600">Dr. Iyer</td>
+<td class="px-6 py-3">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 border border-green-200">
+                                            With Doctor
+                                        </span>
+</td>
+<td class="px-6 py-3 text-right text-gray-500 font-mono">--</td>
+</tr>
+<tr class="hover:bg-gray-50 transition-colors group">
+<td class="px-6 py-3 font-medium text-gray-800">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center text-xs font-bold">AS</div>
+<div>
+<div class="font-medium">Amit Shah</div>
+<div class="text-[10px] text-gray-400">UHID: 24503</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-3 text-gray-500 font-mono text-xs">A-103</td>
+<td class="px-6 py-3 text-gray-600">Dr. Varma</td>
+<td class="px-6 py-3">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 border border-blue-200">
+                                            Vitals Check
+                                        </span>
+</td>
+<td class="px-6 py-3 text-right text-gray-500 font-mono">5m</td>
+</tr>
+<tr class="hover:bg-gray-50 transition-colors group">
+<td class="px-6 py-3 font-medium text-gray-800">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center text-xs font-bold">PS</div>
+<div>
+<div class="font-medium">Priya Singh</div>
+<div class="text-[10px] text-gray-400">UHID: 24504</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-3 text-gray-500 font-mono text-xs">A-104</td>
+<td class="px-6 py-3 text-gray-600">Dr. Patel</td>
+<td class="px-6 py-3">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 border border-yellow-200">
+                                            Waiting
+                                        </span>
+</td>
+<td class="px-6 py-3 text-right text-gray-500 font-mono">20m</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Widget B: Panchkarma Schedule -->
+<div class="lg:col-span-1 bg-white rounded-xl shadow-sm border border-gray-100 flex flex-col h-full">
+<div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+<h2 class="text-lg font-serif font-bold text-gray-800">Panchkarma Grid</h2>
+<div class="flex gap-2 text-xs">
+<div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-red-500"></span>Busy</div>
+<div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-green-500"></span>Free</div>
+</div>
+</div>
+<div class="p-4 flex-1 overflow-y-auto">
+<div class="space-y-3">
+<!-- Room Item -->
+<div class="flex items-center justify-between p-3 rounded-lg border border-gray-100 hover:border-red-200 hover:bg-red-50/50 transition-all">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-red-100 text-red-600 flex items-center justify-center">
+<span class="material-symbols-outlined">spa</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-gray-800">Room 101</h4>
+<p class="text-xs text-gray-500">Shirodhara • Ends 2:30 PM</p>
+</div>
+</div>
+<span class="text-xs font-medium text-red-600 bg-red-50 px-2 py-1 rounded">Active</span>
+</div>
+<!-- Room Item -->
+<div class="flex items-center justify-between p-3 rounded-lg border border-gray-100 hover:border-red-200 hover:bg-red-50/50 transition-all">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-red-100 text-red-600 flex items-center justify-center">
+<span class="material-symbols-outlined">oil_barrel</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-gray-800">Room 102</h4>
+<p class="text-xs text-gray-500">Abhyanga • Ends 3:00 PM</p>
+</div>
+</div>
+<span class="text-xs font-medium text-red-600 bg-red-50 px-2 py-1 rounded">Active</span>
+</div>
+<!-- Room Item -->
+<div class="flex items-center justify-between p-3 rounded-lg border border-gray-100 hover:border-green-200 hover:bg-green-50/50 transition-all">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-green-100 text-green-600 flex items-center justify-center">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-gray-800">Room 103</h4>
+<p class="text-xs text-gray-500">Cleaning Complete</p>
+</div>
+</div>
+<span class="text-xs font-medium text-green-700 bg-green-50 px-2 py-1 rounded">Empty</span>
+</div>
+<!-- Room Item -->
+<div class="flex items-center justify-between p-3 rounded-lg border border-gray-100 hover:border-red-200 hover:bg-red-50/50 transition-all">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-red-100 text-red-600 flex items-center justify-center">
+<span class="material-symbols-outlined">heat</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-gray-800">Room 104</h4>
+<p class="text-xs text-gray-500">Swedana • Ends 2:15 PM</p>
+</div>
+</div>
+<span class="text-xs font-medium text-red-600 bg-red-50 px-2 py-1 rounded">Active</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Row 3: Alerts & Inventory -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-6">
+<!-- Widget C: Inventory Alerts -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-orange-600">warning</span>
+<h2 class="text-lg font-serif font-bold text-gray-800">Inventory Alerts</h2>
+</div>
+<a class="text-sm text-primary hover:underline" href="#">Go to Inventory</a>
+</div>
+<div class="space-y-4">
+<!-- Alert Item -->
+<div>
+<div class="flex justify-between text-sm mb-1">
+<span class="font-medium text-gray-700">Mahanarayan Oil</span>
+<span class="text-red-600 font-bold">Critical (2L left)</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-red-500 h-2 rounded-full" style="width: 15%"></div>
+</div>
+</div>
+<!-- Alert Item -->
+<div>
+<div class="flex justify-between text-sm mb-1">
+<span class="font-medium text-gray-700">Dhanwantaram Kashayam</span>
+<span class="text-orange-500 font-bold">Low (5 bottles)</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-orange-400 h-2 rounded-full" style="width: 25%"></div>
+</div>
+</div>
+<!-- Alert Item -->
+<div>
+<div class="flex justify-between text-sm mb-1">
+<span class="font-medium text-gray-700">Ksheerabala 101</span>
+<span class="text-yellow-600 font-bold">Reorder Soon (10L left)</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-yellow-400 h-2 rounded-full" style="width: 45%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Widget D: Operational Notices -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 flex flex-col">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-gray-700">campaign</span>
+<h2 class="text-lg font-serif font-bold text-gray-800">Operational Notices</h2>
+</div>
+<ul class="space-y-3 flex-1">
+<li class="flex items-start gap-3 text-sm text-gray-700">
+<span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 flex-shrink-0"></span>
+<span>IPD Bed Occupancy is at <span class="font-bold text-red-600">85%</span>. Please prioritize discharges for upcoming admissions.</span>
+</li>
+<li class="flex items-start gap-3 text-sm text-gray-700">
+<span class="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 flex-shrink-0"></span>
+<span>System Maintenance scheduled for <span class="font-bold text-gray-900">2 AM - 4 AM</span> tonight.</span>
+</li>
+<li class="flex items-start gap-3 text-sm text-gray-700">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0"></span>
+<span>Dr. Mehta is on leave tomorrow. Please reschedule his morning OPD slots.</span>
+</li>
+</ul>
+</div>
+</section>
+</div>
+</main>
+</body></html>

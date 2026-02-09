@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>In-Patient Department Configuration - Ayurgrid</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "dhanvantari": "#2E7D32", // Primary Green requested
+                        "dhanvantari-light": "#4CAF50",
+                        "dhanvantari-dark": "#1B5E20",
+                        "surface-light": "#ffffff",
+                        "surface-subtle": "#f8fafc",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                    },
+                    boxShadow: {
+                        "card": "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)",
+                        "elevation": "0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025)",
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-display min-h-screen text-gray-800 antialiased selection:bg-dhanvantari selection:text-white">
+<nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16 items-center">
+<div class="flex items-center font-bold text-xl text-gray-900 tracking-tight">
+                    Ayurgrid
+                </div>
+<div class="hidden md:flex items-center space-x-4">
+<div class="flex items-center">
+<div class="flex items-center justify-center w-8 h-8 rounded-full bg-dhanvantari text-white">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<span class="ml-2 text-sm font-medium text-gray-900">Account</span>
+<div class="w-12 h-0.5 bg-dhanvantari mx-3"></div>
+</div>
+<div class="flex items-center">
+<div class="flex items-center justify-center w-8 h-8 rounded-full bg-dhanvantari text-white">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<span class="ml-2 text-sm font-medium text-gray-900">Infrastructure</span>
+<div class="w-12 h-0.5 bg-dhanvantari mx-3"></div>
+</div>
+<div class="flex items-center">
+<div class="flex items-center justify-center w-8 h-8 rounded-full bg-dhanvantari text-white shadow-lg shadow-dhanvantari/30 ring-4 ring-dhanvantari/10">
+<span class="text-sm font-bold">3</span>
+</div>
+<span class="ml-2 text-sm font-bold text-dhanvantari">IPD Config</span>
+</div>
+</div>
+<div class="md:hidden text-sm font-medium text-dhanvantari">
+                    Step 3 of 4
+                </div>
+</div>
+</div>
+</nav>
+<main class="max-w-3xl mx-auto px-4 sm:px-6 py-10">
+<div class="mb-8 text-center">
+<h1 class="text-3xl font-bold text-gray-900 tracking-tight mb-2">IPD Configuration</h1>
+<p class="text-gray-500 max-w-xl mx-auto text-sm sm:text-base">
+                Configure your in-patient department structure, workflows, and documentation standards.
+            </p>
+</div>
+<div class="bg-white rounded-2xl shadow-elevation border border-gray-100 overflow-hidden">
+<form action="#" class="divide-y divide-gray-100" method="POST">
+<div class="p-6 sm:p-8">
+<div class="flex items-center gap-3 mb-6">
+<div class="p-2 bg-dhanvantari/10 rounded-lg text-dhanvantari">
+<span class="material-symbols-outlined">bed</span>
+</div>
+<h2 class="text-lg font-semibold text-gray-900">Ward &amp; Bed Structure</h2>
+</div>
+<div class="space-y-4">
+<div class="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl border border-gray-200 hover:border-dhanvantari/40 transition-colors bg-gray-50/50">
+<label class="flex items-center gap-3 cursor-pointer select-none">
+<input checked="" class="w-5 h-5 rounded border-gray-300 text-dhanvantari focus:ring-dhanvantari" type="checkbox"/>
+<span class="font-medium text-gray-900">General Ward</span>
+</label>
+<div class="flex items-center gap-3">
+<span class="text-xs font-medium uppercase text-gray-500 tracking-wide">Beds</span>
+<div class="flex items-center border border-gray-300 rounded-lg bg-white overflow-hidden shadow-sm h-9 w-32 focus-within:ring-2 focus-within:ring-dhanvantari/20 focus-within:border-dhanvantari">
+<button class="w-9 h-full flex items-center justify-center hover:bg-gray-100 text-gray-500 transition-colors" type="button">
+<span class="material-symbols-outlined text-lg">remove</span>
+</button>
+<input class="w-full h-full text-center border-none focus:ring-0 p-0 text-sm font-semibold text-gray-900 [appearance:textfield] [&amp;::-webkit-outer-spin-button]:appearance-none [&amp;::-webkit-inner-spin-button]:appearance-none" type="number" value="20"/>
+<button class="w-9 h-full flex items-center justify-center hover:bg-gray-100 text-dhanvantari font-bold transition-colors" type="button">
+<span class="material-symbols-outlined text-lg">add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl border border-gray-200 hover:border-dhanvantari/40 transition-colors bg-gray-50/50">
+<label class="flex items-center gap-3 cursor-pointer select-none">
+<input checked="" class="w-5 h-5 rounded border-gray-300 text-dhanvantari focus:ring-dhanvantari" type="checkbox"/>
+<span class="font-medium text-gray-900">Semi-Private Ward</span>
+</label>
+<div class="flex items-center gap-3">
+<span class="text-xs font-medium uppercase text-gray-500 tracking-wide">Beds</span>
+<div class="flex items-center border border-gray-300 rounded-lg bg-white overflow-hidden shadow-sm h-9 w-32 focus-within:ring-2 focus-within:ring-dhanvantari/20 focus-within:border-dhanvantari">
+<button class="w-9 h-full flex items-center justify-center hover:bg-gray-100 text-gray-500 transition-colors" type="button">
+<span class="material-symbols-outlined text-lg">remove</span>
+</button>
+<input class="w-full h-full text-center border-none focus:ring-0 p-0 text-sm font-semibold text-gray-900 [appearance:textfield] [&amp;::-webkit-outer-spin-button]:appearance-none [&amp;::-webkit-inner-spin-button]:appearance-none" type="number" value="10"/>
+<button class="w-9 h-full flex items-center justify-center hover:bg-gray-100 text-dhanvantari font-bold transition-colors" type="button">
+<span class="material-symbols-outlined text-lg">add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl border border-gray-200 transition-colors bg-white">
+<label class="flex items-center gap-3 cursor-pointer select-none">
+<input class="w-5 h-5 rounded border-gray-300 text-dhanvantari focus:ring-dhanvantari" type="checkbox"/>
+<span class="font-medium text-gray-900">Private Room</span>
+</label>
+<div class="flex items-center gap-3 opacity-50 pointer-events-none">
+<span class="text-xs font-medium uppercase text-gray-500 tracking-wide">Beds</span>
+<div class="flex items-center border border-gray-200 rounded-lg bg-gray-50 overflow-hidden h-9 w-32">
+<button class="w-9 h-full flex items-center justify-center text-gray-400" disabled="" type="button">
+<span class="material-symbols-outlined text-lg">remove</span>
+</button>
+<input class="w-full h-full text-center bg-transparent border-none focus:ring-0 p-0 text-sm font-semibold text-gray-400 [appearance:textfield]" disabled="" type="number" value="0"/>
+<button class="w-9 h-full flex items-center justify-center text-gray-400" disabled="" type="button">
+<span class="material-symbols-outlined text-lg">add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl border border-gray-200 hover:border-dhanvantari/40 transition-colors bg-gray-50/50">
+<label class="flex items-center gap-3 cursor-pointer select-none">
+<input checked="" class="w-5 h-5 rounded border-gray-300 text-dhanvantari focus:ring-dhanvantari" type="checkbox"/>
+<span class="font-medium text-gray-900">ICU</span>
+</label>
+<div class="flex items-center gap-3">
+<span class="text-xs font-medium uppercase text-gray-500 tracking-wide">Beds</span>
+<div class="flex items-center border border-gray-300 rounded-lg bg-white overflow-hidden shadow-sm h-9 w-32 focus-within:ring-2 focus-within:ring-dhanvantari/20 focus-within:border-dhanvantari">
+<button class="w-9 h-full flex items-center justify-center hover:bg-gray-100 text-gray-500 transition-colors" type="button">
+<span class="material-symbols-outlined text-lg">remove</span>
+</button>
+<input class="w-full h-full text-center border-none focus:ring-0 p-0 text-sm font-semibold text-gray-900 [appearance:textfield] [&amp;::-webkit-outer-spin-button]:appearance-none [&amp;::-webkit-inner-spin-button]:appearance-none" type="number" value="5"/>
+<button class="w-9 h-full flex items-center justify-center hover:bg-gray-100 text-dhanvantari font-bold transition-colors" type="button">
+<span class="material-symbols-outlined text-lg">add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-4 p-4 rounded-lg bg-orange-50 border border-orange-100 flex gap-3 items-start">
+<span class="material-symbols-outlined text-orange-500 text-xl mt-0.5">warning</span>
+<div class="text-sm">
+<p class="font-semibold text-orange-800">Capacity Mismatch</p>
+<p class="text-orange-700 mt-1">
+                                    Total allocated: <span class="font-bold">35</span>. Target: <span class="font-bold">50</span>. 
+                                    Please allocate 15 more beds.
+                                </p>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 sm:p-8">
+<div class="flex items-center gap-3 mb-6">
+<div class="p-2 bg-dhanvantari/10 rounded-lg text-dhanvantari">
+<span class="material-symbols-outlined">clinical_notes</span>
+</div>
+<h2 class="text-lg font-semibold text-gray-900">Clinical Workflow</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-3">Admission Approval Model</label>
+<div class="space-y-3">
+<label class="flex items-center gap-3 p-3 rounded-lg border border-dhanvantari bg-dhanvantari/5 cursor-pointer ring-1 ring-dhanvantari/20">
+<input checked="" class="w-4 h-4 text-dhanvantari border-gray-300 focus:ring-dhanvantari" name="admission_model" type="radio"/>
+<div>
+<span class="block text-sm font-semibold text-gray-900">Doctor Mandatory</span>
+<span class="block text-xs text-gray-500">Doctor must approve requests</span>
+</div>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-gray-300 bg-white cursor-pointer transition-colors">
+<input class="w-4 h-4 text-dhanvantari border-gray-300 focus:ring-dhanvantari" name="admission_model" type="radio"/>
+<div>
+<span class="block text-sm font-semibold text-gray-900">Auto-Admission</span>
+<span class="block text-xs text-gray-500">Front-desk can admit directly</span>
+</div>
+</label>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-3">Duty Doctor Model</label>
+<div class="relative">
+<select class="w-full h-11 rounded-lg border-gray-300 bg-white text-gray-900 shadow-sm focus:border-dhanvantari focus:ring-dhanvantari sm:text-sm">
+<option>Rotational Shifts (3 Shifts)</option>
+<option>Fixed Resident Medical Officer</option>
+<option>On-Call Consultant Only</option>
+</select>
+</div>
+<p class="mt-2 text-xs text-gray-500">How RMOs are assigned to wards.</p>
+</div>
+</div>
+</div>
+<div class="p-6 sm:p-8">
+<div class="flex items-center gap-3 mb-6">
+<div class="p-2 bg-dhanvantari/10 rounded-lg text-dhanvantari">
+<span class="material-symbols-outlined">monitor_heart</span>
+</div>
+<h2 class="text-lg font-semibold text-gray-900">Nursing &amp; Monitoring</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-3">Nursing Station Count</label>
+<div class="flex items-center border border-gray-300 rounded-lg bg-white overflow-hidden shadow-sm h-11 w-full max-w-[180px] focus-within:ring-2 focus-within:ring-dhanvantari/20 focus-within:border-dhanvantari">
+<button class="w-12 h-full flex items-center justify-center hover:bg-gray-100 text-gray-500 transition-colors" type="button">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<input class="w-full h-full text-center border-none focus:ring-0 p-0 font-semibold text-gray-900" type="number" value="2"/>
+<button class="w-12 h-full flex items-center justify-center hover:bg-gray-100 text-dhanvantari font-bold transition-colors" type="button">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-3">Default IPD Monitoring</label>
+<select class="w-full h-11 rounded-lg border-gray-300 bg-white text-gray-900 shadow-sm focus:border-dhanvantari focus:ring-dhanvantari sm:text-sm">
+<option>Q4H (Every 4 Hours)</option>
+<option>Q6H (Every 6 Hours)</option>
+<option>Q8H (Every 8 Hours)</option>
+<option>BID (Twice a Day)</option>
+</select>
+</div>
+</div>
+</div>
+<div class="p-6 sm:p-8">
+<div class="flex items-center gap-3 mb-6">
+<div class="p-2 bg-dhanvantari/10 rounded-lg text-dhanvantari">
+<span class="material-symbols-outlined">description</span>
+</div>
+<h2 class="text-lg font-semibold text-gray-900">Documentation &amp; Insurance</h2>
+</div>
+<div class="space-y-6">
+<div>
+<p class="text-sm font-medium text-gray-700 mb-3">Pre-load Clinical Templates</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<label class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 cursor-pointer transition-colors">
+<input checked="" class="w-4 h-4 rounded border-gray-300 text-dhanvantari focus:ring-dhanvantari" type="checkbox"/>
+<span class="text-sm text-gray-700">Admission Note</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 cursor-pointer transition-colors">
+<input checked="" class="w-4 h-4 rounded border-gray-300 text-dhanvantari focus:ring-dhanvantari" type="checkbox"/>
+<span class="text-sm text-gray-700">Nursing Vitals Chart</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 cursor-pointer transition-colors">
+<input checked="" class="w-4 h-4 rounded border-gray-300 text-dhanvantari focus:ring-dhanvantari" type="checkbox"/>
+<span class="text-sm text-gray-700">MAR</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 cursor-pointer transition-colors">
+<input class="w-4 h-4 rounded border-gray-300 text-dhanvantari focus:ring-dhanvantari" type="checkbox"/>
+<span class="text-sm text-gray-700">Discharge Summary</span>
+</label>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 rounded-xl bg-dhanvantari/5 border border-dhanvantari/10">
+<div>
+<h3 class="font-semibold text-sm text-gray-900">Insurance-compatible Documentation</h3>
+<p class="text-xs text-gray-600 mt-0.5">Enforce ICD-10 coding and mandatory fields.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-dhanvantari/30 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-dhanvantari"></div>
+</label>
+</div>
+</div>
+</div>
+<div class="px-6 py-6 sm:px-8 sm:py-8 bg-gray-50 flex flex-col-reverse sm:flex-row justify-between items-center gap-4">
+<button class="text-gray-500 hover:text-gray-900 font-medium text-sm transition-colors" type="button">
+                        ← Back
+                    </button>
+<button class="w-full sm:w-auto bg-dhanvantari hover:bg-dhanvantari-dark text-white font-semibold py-2.5 px-6 rounded-lg shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2" type="submit">
+                        Save &amp; Continue
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+</main>
+
+</body></html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Global Error &amp; Validation Patterns - Ayurgrid</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Serif:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2f7f33",
+                        "primary-dark": "#1b4d1d",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#141e15",
+                        "medical-red": "#C62828",
+                        "medical-amber": "#FFB300",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "serif": ["Noto Serif", "serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Noto Serif', serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col font-display">
+<!-- Header Section -->
+<header class="w-full px-6 py-12 md:px-20 lg:px-40 bg-white dark:bg-[#1a261b] border-b border-primary/10">
+<div class="max-w-[960px] mx-auto">
+<div class="flex flex-col gap-4">
+<span class="text-primary font-bold tracking-widest text-sm uppercase">Ayurgrid Design System</span>
+<h1 class="text-4xl md:text-5xl font-black leading-tight text-slate-900 dark:text-white tracking-tight">
+                    Global Error &amp; Validation Patterns
+                </h1>
+<p class="text-slate-500 dark:text-slate-400 text-lg md:text-xl max-w-2xl font-light">
+                    Standardized UX guidelines for handling error states, validation feedback, and system alerts across the Ayurgrid Ayurvedic Hospital SaaS platform.
+                </p>
+</div>
+</div>
+</header>
+<main class="flex-grow w-full px-6 py-10 md:px-20 lg:px-40">
+<div class="max-w-[960px] mx-auto grid grid-cols-1 gap-16">
+<!-- Section 1: Inline Validation -->
+<section class="flex flex-col gap-6">
+<div class="border-b border-primary/10 pb-2">
+<h2 class="text-2xl font-bold text-slate-800 dark:text-slate-100">1. Inline Form Validation</h2>
+<p class="text-slate-500 text-sm mt-1">Fields utilize 'Medical Red' borders and specific iconography for immediate feedback.</p>
+</div>
+<div class="p-8 bg-white dark:bg-[#1e2e20] rounded-lg shadow-sm border border-slate-100 dark:border-slate-800 grid gap-8 md:grid-cols-2">
+<!-- Mobile Number Error -->
+<div class="flex flex-col gap-2">
+<label class="text-slate-700 dark:text-slate-300 text-sm font-semibold ml-1">Patient Mobile Number</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400">
+<span class="material-symbols-outlined text-[20px]">smartphone</span>
+</div>
+<input class="w-full pl-11 pr-12 py-3.5 bg-background-light dark:bg-background-dark border-2 border-medical-red rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-0 focus:border-medical-red transition-all font-medium" type="text" value="+91 9999"/>
+<div class="absolute inset-y-0 right-0 flex items-center pr-4 text-medical-red">
+<span class="material-symbols-outlined filled">error</span>
+</div>
+</div>
+<span class="text-medical-red text-xs font-medium flex items-center gap-1 ml-1">
+                            Invalid mobile number format
+                        </span>
+</div>
+<!-- Password Error -->
+<div class="flex flex-col gap-2">
+<label class="text-slate-700 dark:text-slate-300 text-sm font-semibold ml-1">Confirm Password</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+</div>
+<input class="w-full pl-11 pr-12 py-3.5 bg-background-light dark:bg-background-dark border-2 border-medical-red rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-0 focus:border-medical-red transition-all font-medium" type="password" value="password123"/>
+<div class="absolute inset-y-0 right-0 flex items-center pr-4 text-medical-red">
+<span class="material-symbols-outlined filled">error</span>
+</div>
+</div>
+<span class="text-medical-red text-xs font-medium flex items-center gap-1 ml-1">
+                            Passwords do not match
+                        </span>
+</div>
+</div>
+</section>
+<!-- Section 2: Toast Notifications -->
+<section class="flex flex-col gap-6 relative">
+<div class="border-b border-primary/10 pb-2">
+<h2 class="text-2xl font-bold text-slate-800 dark:text-slate-100">2. Toast Notifications</h2>
+<p class="text-slate-500 text-sm mt-1">Floating alerts positioned at the top-right viewport. Showcased statically here.</p>
+</div>
+<div class="bg-slate-100 dark:bg-slate-900 rounded-lg p-12 relative overflow-hidden min-h-[300px] flex items-center justify-center border border-dashed border-slate-300 dark:border-slate-700">
+<p class="text-slate-400 text-sm uppercase tracking-widest font-semibold">Viewport Simulation</p>
+<!-- Toasts Container -->
+<div class="absolute top-6 right-6 flex flex-col gap-4 w-full max-w-sm">
+<!-- Error Toast -->
+<div class="flex items-start gap-4 p-4 bg-white dark:bg-[#1e2e20] rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border-l-4 border-medical-red animate-pulse">
+<div class="text-medical-red bg-red-50 dark:bg-red-900/20 p-2 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">gpp_bad</span>
+</div>
+<div class="flex-1 pt-0.5">
+<h4 class="text-slate-900 dark:text-white font-bold text-sm">Access Denied</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-tight mt-1">Invalid credentials. Please check your username and password.</p>
+</div>
+<button class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Warning Toast -->
+<div class="flex items-start gap-4 p-4 bg-white dark:bg-[#1e2e20] rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border-l-4 border-medical-amber">
+<div class="text-medical-amber bg-amber-50 dark:bg-amber-900/20 p-2 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+</div>
+<div class="flex-1 pt-0.5">
+<h4 class="text-slate-900 dark:text-white font-bold text-sm">Session Timeout</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-tight mt-1">Your OTP has expired. Please request a new code.</p>
+</div>
+<button class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Security Lock Modal -->
+<section class="flex flex-col gap-6">
+<div class="border-b border-primary/10 pb-2">
+<h2 class="text-2xl font-bold text-slate-800 dark:text-slate-100">3. Security Modal</h2>
+<p class="text-slate-500 text-sm mt-1">Critical system intervention requiring user action.</p>
+</div>
+<div class="relative bg-slate-200 dark:bg-slate-800 rounded-lg p-8 min-h-[500px] flex items-center justify-center overflow-hidden">
+<!-- Backdrop -->
+<div class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm z-0"></div>
+<!-- Modal -->
+<div class="relative z-10 bg-white dark:bg-[#1a261b] w-full max-w-md rounded-2xl shadow-2xl p-8 text-center border-t-4 border-medical-red">
+<div class="w-16 h-16 bg-red-50 dark:bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-6 text-medical-red">
+<span class="material-symbols-outlined text-[32px]">lock_clock</span>
+</div>
+<h3 class="text-2xl font-serif font-bold text-slate-900 dark:text-white mb-3">Account Temporarily Locked</h3>
+<p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed mb-8">
+                            For your security, access has been paused due to multiple failed login attempts. Please wait <span class="font-bold text-slate-800 dark:text-slate-200">15 minutes</span> before trying again.
+                        </p>
+<button class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 px-6 rounded-full transition-colors duration-200 flex items-center justify-center gap-2 shadow-lg shadow-primary/30">
+<span class="material-symbols-outlined text-[20px]">lock_reset</span>
+                            Recover Account
+                        </button>
+<button class="mt-4 text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 text-sm font-medium">
+                            Contact Support
+                        </button>
+</div>
+</div>
+</section>
+<!-- Section 4: Full-page System Error -->
+<section class="flex flex-col gap-6">
+<div class="border-b border-primary/10 pb-2">
+<h2 class="text-2xl font-bold text-slate-800 dark:text-slate-100">4. Full-page System Error</h2>
+<p class="text-slate-500 text-sm mt-1">503 Service Unavailable state layout.</p>
+</div>
+<div class="relative w-full aspect-video bg-white dark:bg-[#1a261b] rounded-lg shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden flex flex-col md:flex-row">
+<!-- Illustration Side -->
+<div class="w-full md:w-1/2 bg-background-light dark:bg-[#1e2e20] flex items-center justify-center p-10 relative overflow-hidden">
+<!-- Abstract Medical Pattern -->
+<div class="absolute inset-0 opacity-10">
+<div class="absolute top-10 left-10 w-32 h-32 rounded-full border-4 border-primary/40"></div>
+<div class="absolute bottom-20 right-10 w-48 h-48 rounded-full bg-primary/20 blur-3xl"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary">
+<span class="material-symbols-outlined text-[200px] opacity-10">local_hospital</span>
+</div>
+</div>
+<div class="relative z-10 w-48 h-48 bg-white dark:bg-[#141e15] rounded-full shadow-xl flex items-center justify-center">
+<!-- Replaced custom SVG with Material Icon for simplicity while keeping the design intent -->
+<span class="material-symbols-outlined text-medical-red text-[80px]">monitor_heart</span>
+<div class="absolute bottom-2 right-2 bg-slate-100 dark:bg-slate-700 p-2 rounded-full">
+<span class="material-symbols-outlined text-slate-400 text-[24px]">power_off</span>
+</div>
+</div>
+</div>
+<!-- Content Side -->
+<div class="w-full md:w-1/2 p-10 md:p-16 flex flex-col justify-center">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 dark:bg-red-900/20 text-medical-red text-xs font-bold uppercase tracking-wider w-fit mb-6">
+<span class="w-2 h-2 rounded-full bg-medical-red"></span>
+                            System Outage
+                        </div>
+<h2 class="text-3xl md:text-4xl font-serif font-bold text-slate-900 dark:text-white mb-4">
+                            Service Temporarily Unavailable
+                        </h2>
+<p class="text-slate-500 dark:text-slate-400 text-lg mb-8 leading-relaxed">
+                            Our digital pharmacy system is currently undergoing critical maintenance. We apologize for the inconvenience and will be back online shortly.
+                        </p>
+<div class="flex gap-4">
+<button class="bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-8 rounded-full transition-colors duration-200 shadow-md shadow-primary/20">
+                                Retry Connection
+                            </button>
+<button class="bg-transparent border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold py-3 px-8 rounded-full transition-colors duration-200">
+                                Check Status
+                            </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<footer class="mt-20 py-10 text-center border-t border-slate-100 dark:border-slate-800">
+<p class="text-slate-400 text-sm">Ayurgrid Design System © 2023</p>
+</footer>
+</body></html>

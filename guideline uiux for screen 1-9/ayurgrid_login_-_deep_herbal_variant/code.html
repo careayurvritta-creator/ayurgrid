@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ayurgrid Login - Deep Herbal Variant</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#2E7D32", /* Adjusted to match Dhanvantari Green request */
+              "primary-hover": "#256628",
+              "background-light": "#f6f8f6",
+              "background-dark": "#0F1C18", /* Deep Midnight Herbal Green */
+              "surface-dark": "#162520",
+              "copper-accent": "#B87333",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "1rem", 
+              "lg": "2rem", 
+              "xl": "3rem", 
+              "full": "9999px"
+            },
+            backgroundImage: {
+              'mesh-copper': 'radial-gradient(at 10% 10%, rgb(30, 60, 40) 0, transparent 40%), radial-gradient(at 90% 10%, rgb(184, 115, 51) 0, transparent 50%), radial-gradient(at 90% 90%, rgb(15, 28, 24) 0, transparent 40%), radial-gradient(at 10% 90%, rgb(46, 125, 50) 0, transparent 50%)',
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0F1C18; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2E3B35; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3E4B45; 
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Subtle animation for the mesh gradient */
+        @keyframes float {
+            0% { transform: translate(0px, 0px); }
+            50% { transform: translate(-10px, 15px); }
+            100% { transform: translate(0px, 0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display h-screen w-full overflow-hidden text-white antialiased selection:bg-primary selection:text-white">
+<div class="flex h-full w-full flex-row">
+<!-- Left Brand Panel (40%) -->
+<div class="relative hidden w-2/5 flex-col justify-between overflow-hidden bg-[#151e15] p-12 lg:flex">
+<!-- Dynamic Mesh Gradient Background -->
+<div class="absolute inset-0 bg-mesh-copper opacity-80" data-alt="Abstract copper and green mesh gradient background"></div>
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay"></div>
+<!-- Logo Area -->
+<div class="relative z-10 flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
+<span class="material-symbols-outlined text-2xl">spa</span>
+</div>
+<span class="text-2xl font-bold tracking-tight text-white">Ayurgrid</span>
+</div>
+<!-- Testimonial Card -->
+<div class="glass-panel animate-float relative z-10 mx-auto w-full max-w-md rounded-2xl p-8 shadow-2xl">
+<div class="mb-6 text-primary">
+<span class="material-symbols-outlined text-4xl">format_quote</span>
+</div>
+<blockquote class="mb-6 text-xl font-medium leading-relaxed text-white/90">
+                    "Ayurveda is the science of life, and Ayurgrid brings that science into the modern digital era with precision and respect for tradition."
+                </blockquote>
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 overflow-hidden rounded-full border-2 border-primary/30">
+<img alt="Portrait of Dr. Vasant Lad" class="h-full w-full object-cover" data-alt="Portrait of an Indian male doctor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBcnpS2vh8NldcMb39F_i5T8WvcPmVqQdT35WR9_xWzWJu0SzjAbPuTUJHh6RBmWyb5gSzwioxJBMDDqIQjOAGiV2w9Iy7BeR-ttax3b69KWDdrx7vlkGJAjPO0sJSRHoJGrXmCCaEMeuSvijDe4x77uHeUbZfpRoekYEKGVbRj9WdHdB2wLCZM_aGkXMoONxOaASJ5KirSRA03Pg3D3CE9Ea-40eiL6X6JXSGKP_o4lIocX3WmZ4Xeu5Oh-qB46GOp6giF4YxrTY"/>
+</div>
+<div>
+<p class="text-base font-semibold text-white">Dr. Vasant Lad</p>
+<p class="text-sm text-gray-300">BAMS, MASc</p>
+</div>
+</div>
+</div>
+<!-- Footer info -->
+<div class="relative z-10 text-xs text-white/40">
+                © 2024 Ayurgrid Health Technologies. All rights reserved.
+            </div>
+</div>
+<!-- Right Login Panel (60%) -->
+<div class="flex flex-1 flex-col items-center justify-center bg-background-dark px-6 py-12 sm:px-12 xl:px-24">
+<!-- Mobile Logo (visible only on small screens) -->
+<div class="mb-8 flex items-center gap-2 lg:hidden">
+<span class="material-symbols-outlined text-3xl text-primary">spa</span>
+<span class="text-2xl font-bold text-white">Ayurgrid</span>
+</div>
+<div class="w-full max-w-[480px]">
+<!-- Header -->
+<div class="mb-10 text-left">
+<h1 class="mb-2 text-3xl font-bold tracking-tight text-white md:text-4xl">Welcome Back</h1>
+<p class="text-base text-gray-400">Access your practice management dashboard.</p>
+</div>
+<!-- Login Form -->
+<form class="space-y-6">
+<!-- Email Input -->
+<div class="space-y-2">
+<label class="block text-sm font-medium text-gray-300" for="email">Email Address or User ID</label>
+<div class="relative">
+<input class="w-full rounded-full border border-gray-700 bg-surface-dark px-6 py-4 text-white placeholder-gray-500 shadow-sm transition-all focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none" id="email" placeholder="Enter your email" type="text"/>
+<div class="absolute inset-y-0 right-0 flex items-center pr-5 pointer-events-none">
+<span class="material-symbols-outlined text-gray-500">mail</span>
+</div>
+</div>
+</div>
+<!-- Password Input -->
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<label class="block text-sm font-medium text-gray-300" for="password">Password</label>
+</div>
+<div class="relative">
+<input class="w-full rounded-full border border-gray-700 bg-surface-dark px-6 py-4 text-white placeholder-gray-500 shadow-sm transition-all focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none" id="password" placeholder="Enter your password" type="password"/>
+<div class="absolute inset-y-0 right-0 flex items-center pr-5 cursor-pointer hover:text-white group">
+<span class="material-symbols-outlined text-gray-500 group-hover:text-gray-300 transition-colors">visibility_off</span>
+</div>
+</div>
+</div>
+<!-- Forgot Password Link (aligned right under input) -->
+<div class="flex justify-end">
+<a class="text-sm font-medium text-primary hover:text-primary-hover hover:underline decoration-2 underline-offset-4 transition-all" href="#">Forgot Password?</a>
+</div>
+<!-- Actions -->
+<div class="space-y-4 pt-2">
+<button class="flex w-full items-center justify-center rounded-full bg-primary px-8 py-4 text-base font-bold text-white shadow-lg shadow-primary/20 transition-all hover:bg-primary-hover hover:shadow-primary/30 active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background-dark" type="button">
+                            Login securely
+                        </button>
+<div class="relative flex items-center justify-center py-2">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-gray-800"></div>
+</div>
+<span class="relative bg-background-dark px-4 text-sm text-gray-500">or</span>
+</div>
+<button class="flex w-full items-center justify-center gap-2 rounded-full border border-gray-700 bg-transparent px-8 py-3.5 text-base font-medium text-white transition-all hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-background-dark" type="button">
+<span class="material-symbols-outlined text-[20px]">sms</span>
+                            Login with OTP instead
+                        </button>
+</div>
+</form>
+<!-- Footer CTA -->
+<div class="mt-12 text-center">
+<p class="text-gray-400">
+                        New to Ayurgrid? 
+                        <a class="ml-1 font-semibold text-primary hover:text-primary-hover hover:underline decoration-2 underline-offset-4 transition-all" href="#">Register Your Practice</a>
+</p>
+</div>
+<!-- Security Badges (Subtle) -->
+<div class="mt-12 flex justify-center gap-6 opacity-30 grayscale hover:opacity-50 hover:grayscale-0 transition-all duration-500">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">lock</span>
+<span class="text-[10px] font-semibold tracking-wider uppercase">HIPAA Compliant</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">security</span>
+<span class="text-[10px] font-semibold tracking-wider uppercase">End-to-End Encrypted</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>
