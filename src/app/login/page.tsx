@@ -84,7 +84,7 @@ export default function LoginPage() {
                                 alt="Portrait of Dr. Vasant Lad"
                                 fill
                                 className="object-cover"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBcnpS2vh8NldcMb39F_i5T8WvcPmVqQdT35WR9_xWzWJu0SzjAbPuTUJHh6RBmWyb5gSzwioxJBMDDqIQjOAGiV2w9Iy7BeR-ttax3b69KWDdrx7vlkGJAjPO0sJSRHoJGrXmCCaEMeuSvijDe4x77uHeUbZfpRoekYEKGVbRj9WdHdB2wLCZM_aGkXMoONxOaASJ5KirSRA03Pg3D3CE9Ea-40eiL6X6JXSGKP_o4lIocX3WmZ4Xeu5Oh-qB46GOp6giF4YxrTY"
+                                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2670&auto=format&fit=crop"
                             />
                         </div>
                         <div>
@@ -205,7 +205,7 @@ export default function LoginPage() {
                             <button
                                 className="flex w-full items-center justify-center gap-2 rounded-full border border-gray-700 bg-transparent px-8 py-3.5 text-base font-medium text-white transition-all hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-background-dark"
                                 type="button"
-                                onClick={() => alert("OTP login not implemented yet")}
+                                onClick={() => router.push("/auth/verify")}
                             >
                                 <MessageSquare className="h-5 w-5" />
                                 Login with OTP instead
