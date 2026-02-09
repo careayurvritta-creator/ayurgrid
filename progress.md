@@ -8,3 +8,5 @@
 - Configured `.env.local` and `src/utils/supabase/client.ts`.
 - Implemented minimal Landing Page (`src/app/page.tsx`).
 - Verified build (`npm run build` - Success).
+- Deployment verified at `https://hims.ayurvrittaayurveda.in`.
+- Configured Supabase keys and verified connection (PGRST116/42P01 error codes confirmed as successful connection to empty DB).

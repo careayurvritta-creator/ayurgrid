@@ -23,3 +23,4 @@ Ayurveda Practice Management System (PMS).
 
 - **2026-02-09**: Initialized BLAST Protocol Memory.
 - **2026-02-09**: Created `PLAN-pms-landing.md` for initial onboarding page.
+- **2026-02-09**: Deployment verified at `https://hims.ayurvrittaayurveda.in`.
