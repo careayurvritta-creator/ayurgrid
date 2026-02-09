@@ -52,10 +52,7 @@ export default function RecoveryPage() {
             <div className="hidden lg:flex lg:w-[40%] flex-col relative bg-[#141e15] overflow-hidden text-white">
                 {/* Background Image/Gradient Overlay */}
                 <div
-                    className="absolute inset-0 z-0 opacity-20 bg-cover bg-center"
-                    style={{
-                        backgroundImage: "url('https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&q=80&w=2664&ixlib=rb-4.0.3')"
-                    }}
+                    className="absolute inset-0 z-0 opacity-20 bg-cover bg-center bg-[url('https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&q=80&w=2664&ixlib=rb-4.0.3')]"
                 ></div>
                 <div
                     className="absolute inset-0 w-full h-full opacity-60 bg-mesh-verify"

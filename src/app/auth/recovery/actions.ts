@@ -63,7 +63,7 @@ export async function resetPassword(prevState: RecoveryState, formData: FormData
     const validated = resetSchema.safeParse({ email, code, password, confirmPassword })
 
     if (!validated.success) {
-        return { error: validated.error.errors[0].message, step: 'code_sent' }
+        return { error: validated.error.issues[0].message, step: 'code_sent' }
     }
 
     const supabase = await createClient()
