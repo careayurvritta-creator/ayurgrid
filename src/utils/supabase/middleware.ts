@@ -54,6 +54,7 @@ export async function updateSession(request: NextRequest) {
         request.nextUrl.pathname !== '/' && // Allow landing page
         !request.nextUrl.pathname.startsWith('/api/') && // Basic API protection logic can be added here or in route handlers
         !request.nextUrl.pathname.startsWith('/_next') &&
+        !request.nextUrl.pathname.startsWith('/debug') &&
         !request.nextUrl.pathname.includes('.')
     ) {
         // no user, potentially respond by redirecting the user to the login page
