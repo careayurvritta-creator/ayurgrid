@@ -4,20 +4,29 @@ import { redirect } from 'next/navigation'
 export default async function DashboardPage() {
     const supabase = await createClient()
 
-    const { data: { user }, error } = await supabase.auth.getUser()
-    if (error || !user) {
+    const { data: { user }, error: userError } = await supabase.auth.getUser()
+
+    if (userError || !user) {
         redirect('/login')
     }
 
-    // Check if user has completed onboarding (i.e., has a hospital record)
-    const { data: hospital, error: hospitalError } = await supabase
-        .from('hospitals')
-        .select('name')
-        .eq('admin_id', user.id)
-        .single()
+    let hospital = null;
+    try {
+        const { data, error: hospitalError } = await supabase
+            .from('hospitals')
+            .select('name')
+            .eq('admin_id', user.id)
+            .single()
 
-    // If no hospital record found, redirect to onboarding step 1
-    if (!hospital || hospitalError) {
+        if (hospitalError && hospitalError.code !== 'PGRST116') {
+            console.error("Dashboard Load Error:", hospitalError);
+        }
+        hospital = data;
+    } catch (e) {
+        console.error("Unexpected Dashboard Data Error:", e);
+    }
+
+    if (!hospital) {
         redirect('/onboarding/identity')
     }
 
